@@ -1,0 +1,5 @@
+<div *ngFor="let v of votes">
+    <p>Recipe: {{ v.recipe }} <button (click)="vote(v.id)">Vote</button></p>
+    <p>Votes: {{ v.votes }}</p>
+    
+</div>
