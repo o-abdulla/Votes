@@ -10,6 +10,8 @@ import { VoteService } from 'src/app/services/vote.service';
 export class VotesComponent {
 
   votes:Vote[] = [];
+  newRecipe: Vote = { id: 0, recipe: '', votes: 0 };
+  recipe:Vote = {} as Vote;
 
   constructor(private _voteService: VoteService) {}
 
@@ -32,6 +34,17 @@ export class VotesComponent {
       }
     })
     
+  }
+
+  addRecipe():void{
+    if(this.newRecipe.recipe.trim()) {
+      this._voteService.addRecipe(this.newRecipe).subscribe((response:Vote) => {
+        console.log(response);
+        this.votes.push(response);
+        this.newRecipe.recipe = '';
+        this.newRecipe.votes = 0;
+      });
+    }
   }
 
 }

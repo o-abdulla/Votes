@@ -27,5 +27,13 @@ namespace Votes.Controllers
         {
             return dbContext.Votes.ToList();
         }
+
+        [HttpPost("addRecipe")]
+        public Vote addRecipe([FromBody] Vote recipe)
+        {
+            dbContext.Votes.Add(recipe);
+            dbContext.SaveChanges();
+            return recipe;
+        }
     }
 }

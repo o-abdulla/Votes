@@ -18,4 +18,8 @@ export class VoteService {
     return this.http.get<Vote[]>(`${this.baseUrl}votes/getVotes`);
   }
 
+  addRecipe(recipe:Vote):Observable<Vote>{
+    return this.http.post<Vote>(`${this.baseUrl}votes/addRecipe`, recipe);
+  }
+
 }

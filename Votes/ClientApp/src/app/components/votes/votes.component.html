@@ -1,5 +1,14 @@
 <div *ngFor="let v of votes">
-    <p>Recipe: {{ v.recipe }} <button (click)="vote(v.id)">Vote</button></p>
+    <p><u>Recipe:</u> <strong>{{ v.recipe }}</strong> &nbsp; <button (click)="vote(v.id)">Vote</button></p>
     <p>Votes: {{ v.votes }}</p>
-    
+</div>
+
+<br>
+<br>
+<br>
+
+<div>
+    <h5>Add a Recipe to the list for voting</h5>
+    <input type="text" [(ngModel)]="newRecipe.recipe" placeholder="Recipe Name"> &nbsp;
+    <button (click)="addRecipe()">Add Recipe</button>
 </div>
